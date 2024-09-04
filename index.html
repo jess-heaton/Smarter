@@ -128,22 +128,18 @@
                 assistant: {
                     extensions: [FormExtension]
                 }
-            });
-
-            // Trigger the proactive message on page load
-            window.voiceflow.chat.proactive.push({
-                type: 'text',
-                payload: { message: 'Psst... over here'}
-            });
-
-            // Listen for widget open event to remove the proactive message
-            window.addEventListener('message', function(event) {
-                if (event.data && event.data.eventName === 'open') {
-                    // Remove proactive message when widget opens
-                    window.voiceflow.chat.proactive.clear();
-                }
+            })
+            .then(() => {
+                window.voiceflow.chat.proactive.push({
+                    type: 'text',
+                    payload: { message: 'Psst... over here' }
+                });
+            })
+            .catch((error) => {
+                console.error("Error loading Voiceflow chat:", error);
             });
         };
+
         document.head.appendChild(widgetScript);
     </script>
 </body>
