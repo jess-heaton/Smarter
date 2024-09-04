@@ -122,6 +122,11 @@
                     extensions: [FormExtension]
                 }
             });
+        window.voiceflow.chat.proactive.push({
+            type: 'text',
+            payload: { message: 'Hello! How can I help you today?' }
+        });
+
         };
         document.head.appendChild(widgetScript);
     </script>
