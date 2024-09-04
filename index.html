@@ -18,14 +18,15 @@
             background: #fff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center; /* Centers text and elements inside the main block */
         }
         h1 {
-            color: #ffffff;
+            text-align: center;
+            color: #333;
         }
         p {
             font-size: 1.1em;
             line-height: 1.6;
+            text-align: left;
         }
         a {
             color: #004aad;
@@ -35,6 +36,14 @@
         a:hover {
             text-decoration: underline;
         }
+        ul, ol {
+            margin-left: 20px;
+            text-align: left;
+        }
+        .bold {
+            font-weight: bold;
+        }
+
         /* Styling for the Stripe Buy Button */
         stripe-buy-button {
             display: block;
@@ -44,24 +53,45 @@
 </head>
 <body>
     <main>
-        <p>Welcome to the Smarter Bathrooms Chatbot Demo.</p>
+        <h1>Welcome to the Smarter Bathrooms Chatbot Demo</h1>
         
-        <p>Monitor and manage your chatbot through your dashboard at <a href="https://dashboard.adanac.ai/" target="_blank">dashboard.adanac.ai</a>. Username and password: <strong>Smarter24!</strong></p>
+        <p>Monitor and manage your agent through your dashboard at <a href="https://dashboard.adanac.ai/" target="_blank">dashboard.adanac.ai</a>. Username and password: <strong>Smarter24!</strong></p>
         
-        <p>Your chatbot responds based on the knowledge available at <a href="https://www.smarterbathrooms.com.au/bathroom-and-kitchen-renovation-faq/" target="_blank">smarterbathrooms.com.au</a>. </p>
+        <p>Your agent’s responses are currently limited to this page: <a href="https://www.smarterbathrooms.com.au/bathroom-and-kitchen-renovation-faq/" target="_blank">https://www.smarterbathrooms.com.au/bathroom-and-kitchen-renovation-faq/</a></p>
+        
         <p>If it can’t find an answer, users will be prompted to fill out a form, and their responses will be sent directly to your email for follow-up.</p>
         
-        <p>The chatbot can be configured to appear only during non-office hours, ensuring your customers have access to assistance 24/7.</p>
+        <p>Try asking: <span class="bold">"Can I stay in my house during construction?", "Do you offer free consultations?", or "Should I have carpet in my bathrooms?"</span></p>
+
+        <p>Setting up your AI Agent “Addie” is quick and easy:</p>
+        <ol>
+            <li>Submit your website to Addie’s knowledge base and specify where to send any questions that Addie can't answer.</li>
+            <li>Simply embed the code on your site and a pop-up widget will appear instantly.</li>
+            <li>Start using the dashboard to monitor transcripts and analytics.</li>
+            <li>Improve the chatbot by updating the knowledge base to confidently handle more queries over time.</li>
+        </ol>
         
-        <p>Try asking: "Can I stay in my house during construction?", "Do you offer free consultations?", or "Should I have carpet in my bathrooms?".</p>
-        
-        <p>Setting up your chatbot is quick and easy. First, submit your website to Addie’s knowledge base and specify where to send any questions that Addie can't answer. Then, simply embed the code on your site and start using the dashboard to monitor transcripts and analytics. You can continue to improve the chatbot by updating the knowledge base to confidently handle more queries over time.</p>
+        <p>Our Starter FAQ Agent package is available for £150 per month, and it includes:</p>
+        <ul>
+            <li>AI-powered FAQ agent “Addie”</li>
+            <li>Pop-up chatbot widget code</li>
+            <li>20 queries per day</li>
+            <li>Dashboard analytics</li>
+            <li>Unlimited knowledge base</li>
+            <li>Lead capture abilities</li>
+            <li>Custom branding</li>
+            <li>Latest GPT-4 model</li>
+            <li>Option for widget to only appear during non-office hours</li>
+        </ul>
         
         <p>Using AI Agent Addie is incredibly cost-effective, costing just £1,800 per year compared to the £27,500 annual salary of a customer service representative. This makes Addie 15 times cheaper than a human.</p>
-        
-        <p>Our Starter FAQ Chatbot package is available for £150 per month, and it includes the AI-powered agent “Addie”, a pop-up chatbot widget, 20 queries per day, dashboard analytics, unlimited knowledge base, lead capture abilities, custom branding, and the latest GPT-4 model.</p>
-        
-        <p>You can also enhance your chatbot experience with additional add-ons such as extra chatbots for £50/month, custom integrations for £95, and increasing the daily query limit for £50 per 100 additional queries.</p>
+
+        <p>Add-ons:</p>
+        <ul>
+            <li>Additional agents</li>
+            <li>Custom integrations (Instagram, email…)</li>
+            <li>Raise daily query limit</li>
+        </ul>
 
         <!-- Stripe Buy Button -->
         <script async src="https://js.stripe.com/v3/buy-button.js"></script>
