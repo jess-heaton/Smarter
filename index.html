@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stannp Chatbot Demo</title>
+    <title>Smarter Chatbot Demo</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,18 +12,13 @@
             margin: 0;
             padding: 0;
         }
-        header {
-            background-color: #281FAB;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
         main {
             margin: 50px auto;
             max-width: 800px;
             background: #fff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Centers text and elements inside the main block */
         }
         h1 {
             color: #ffffff;
@@ -40,28 +35,42 @@
         a:hover {
             text-decoration: underline;
         }
+        /* Styling for the Stripe Buy Button */
+        stripe-buy-button {
+            display: block;
+            margin: 20px auto; /* Center the button */
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Stannp Chatbot Demo</h1>
-    </header>
-
     <main>
-        <p>Welcome to the Stannp Chatbot Demo.</p>
-
-        <p>To monitor your chatbot and manage your knowledge base, you can access your dashboard at <a href="https://dashboard.adanac.ai/" target="_blank">https://dashboard.adanac.ai/</a>.</p>
-        <p>Your username and password are: <strong>Stannp24!</strong></p>
-
-        <p>The actual chatbot on your website can be configured to only appear during non-office hours, so your customers have 24/7 assistance.</p>
-
-        <p>The chatbot will only respond with information included in its knowledge base, which includes <a href="https://knowledge.stannp.com/us" target="_blank">https://knowledge.stannp.com/us</a>.</p>
-
-        <p>If the chatbot is unable to find an answer, the user will be prompted to fill out a form, and the submitted information can be sent directly to your email for follow-up.</p>
+        <p>Welcome to the Smarter Bathrooms Chatbot Demo.</p>
         
+        <p>Monitor and manage your chatbot through your dashboard at <a href="https://dashboard.adanac.ai/" target="_blank">dashboard.adanac.ai</a>. Username and password: <strong>Smarter24!</strong></p>
+        
+        <p>Your chatbot responds based on the knowledge available at <a href="https://www.smarterbathrooms.com.au/bathroom-and-kitchen-renovation-faq/" target="_blank">smarterbathrooms.com.au</a>. </p>
+        <p>If it can’t find an answer, users will be prompted to fill out a form, and their responses will be sent directly to your email for follow-up.</p>
+        
+        <p>The chatbot can be configured to appear only during non-office hours, ensuring your customers have access to assistance 24/7.</p>
+        
+        <p>Try asking: "Can I stay in my house during construction?", "Do you offer free consultations?", or "Should I have carpet in my bathrooms?".</p>
+        
+        <p>Setting up your chatbot is quick and easy. First, submit your website to Addie’s knowledge base and specify where to send any questions that Addie can't answer. Then, simply embed the code on your site and start using the dashboard to monitor transcripts and analytics. You can continue to improve the chatbot by updating the knowledge base to confidently handle more queries over time.</p>
+        
+        <p>Using AI Agent Addie is incredibly cost-effective, costing just £1,800 per year compared to the £27,500 annual salary of a customer service representative. This makes Addie 15 times cheaper than a human.</p>
+        
+        <p>Our Starter FAQ Chatbot package is available for £150 per month, and it includes the AI-powered agent “Addie”, a pop-up chatbot widget, 20 queries per day, dashboard analytics, unlimited knowledge base, lead capture abilities, custom branding, and the latest GPT-4 model.</p>
+        
+        <p>You can also enhance your chatbot experience with additional add-ons such as extra chatbots for £50/month, custom integrations for £95, and increasing the daily query limit for £50 per 100 additional queries.</p>
+
+        <!-- Stripe Buy Button -->
+        <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+        <stripe-buy-button
+          buy-button-id="buy_btn_1PvDnwDxxI4WXwGxyAo6hz44"
+          publishable-key="pk_live_51OsA0uDxxI4WXwGxv3auGXCn4SyVDqe8Tjs5siybENVgNxDbuFggYw6DxPfbq7X0SKnG7fRk7b5CSrwtC2TGhf1E00gHU6mwcf">
+        </stripe-buy-button>
     </main>
 
-    </main>
     <script>
         const FormExtension = {
             name: 'Forms',
@@ -82,8 +91,6 @@
                     <input type="email" class="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$" title="Invalid email address"><br><br>
                     <label for="phone">Phone Number</label>
                     <input type="tel" class="phone" name="phone" required pattern="\\d+" title="Invalid phone number, please enter only numbers"><br><br>
-                    <label for="company">Company Name</label>
-                    <input type="text" class="company" name="company" required><br><br>
                     <label for="message">Message</label>
                     <input type="text" class="message" name="message" required><br><br>
                     <input type="submit" class="submit" value="Submit">
@@ -93,32 +100,29 @@
                     const name = formContainer.querySelector('.name');
                     const email = formContainer.querySelector('.email');
                     const phone = formContainer.querySelector('.phone');
-                    const company = formContainer.querySelector('.company');
                     const message = formContainer.querySelector('.message');
-                    if (!name.checkValidity() || !email.checkValidity() || !phone.checkValidity() || !company.checkValidity() || !message.checkValidity()) {
+                    if (!name.checkValidity() || !email.checkValidity() || !phone.checkValidity() || !message.checkValidity()) {
                         name.classList.add('invalid');
                         email.classList.add('invalid');
                         phone.classList.add('invalid');
-                        company.classList.add('invalid');
                         message.classList.add('invalid');
                         return;
                     }
                     formContainer.querySelector('.submit').remove();
                     window.voiceflow.chat.interact({
                         type: 'complete',
-                        payload: { name: name.value, email: email.value, phone: phone.value, company: company.value, message: message.value },
+                        payload: { name: name.value, email: email.value, phone: phone.value, message: message.value },
                     });
                 });
                 element.appendChild(formContainer);
             }
         }
-
         // Load the Voiceflow widget script and initialize it
         const widgetScript = document.createElement('script');
         widgetScript.src = 'https://cdn.voiceflow.com/widget/bundle.mjs';
         widgetScript.onload = function() {
             window.voiceflow.chat.load({
-                verify: { projectID: '66b29486a8a8fd6c4797f9dd' },
+                verify: { projectID: '66d77194dd4fe72ae3e6b11f' },
                 url: 'https://general-runtime.voiceflow.com',
                 versionID: 'production',
                 assistant: {
@@ -126,22 +130,21 @@
                 }
             });
 
-            // Trigger proactive message (bubble) after widget loads
+            // Trigger the proactive message on page load
             window.voiceflow.chat.proactive.push({
                 type: 'text',
-                payload: { message: 'Hello! How can I help you today?' }
+                payload: { message: 'Psst... over here'}
+            });
+
+            // Listen for widget open event to remove the proactive message
+            window.addEventListener('message', function(event) {
+                if (event.data && event.data.eventName === 'open') {
+                    // Remove proactive message when widget opens
+                    window.voiceflow.chat.proactive.clear();
+                }
             });
         };
         document.head.appendChild(widgetScript);
     </script>
-
-    <!-- Stripe Buy Button Script -->
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-
-    <stripe-buy-button
-        buy-button-id="buy_btn_1PvDnwDxxI4WXwGxyAo6hz44"
-        publishable-key="pk_live_51OsA0uDxxI4WXwGxv3auGXCn4SyVDqe8Tjs5siybENVgNxDbuFggYw6DxPfbq7X0SKnG7fRk7b5CSrwtC2TGhf1E00gHU6mwcf">
-    </stripe-buy-button>
-
 </body>
 </html>
